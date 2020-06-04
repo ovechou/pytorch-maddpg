@@ -1,4 +1,4 @@
-from madrl_environments.pursuit import MAWaterWorld_mod
+from pursuit import MAWaterWorld_mod
 from MADDPG import MADDPG
 import numpy as np
 import torch as th
@@ -23,7 +23,9 @@ world = MAWaterWorld_mod(n_pursuers=2, n_evaders=50,
 vis = visdom.Visdom(port=5274)
 reward_record = []
 
+# numpy的初始化种子
 np.random.seed(1234)
+# torch的初始化种子
 th.manual_seed(1234)
 world.seed(1234)
 n_agents = world.n_pursuers
@@ -88,42 +90,42 @@ for i_episode in range(n_episode):
                   poison_reward,
                   encounter_reward))
 
-    if win is None:
-        win = vis.line(X=np.arange(i_episode, i_episode+1),
-                       Y=np.array([
-                           np.append(total_reward, rr)]),
-                       opts=dict(
-                           ylabel='Reward',
-                           xlabel='Episode',
-                           title='MADDPG on WaterWorld_mod\n' +
-                           'agent=%d' % n_agents +
-                           ', coop=%d' % n_coop +
-                           ', sensor_range=0.2\n' +
-                           'food=%f, poison=%f, encounter=%f' % (
-                               food_reward,
-                               poison_reward,
-                               encounter_reward),
-                           legend=['Total'] +
-                           ['Agent-%d' % i for i in range(n_agents)]))
-    else:
-        vis.line(X=np.array(
-            [np.array(i_episode).repeat(n_agents+1)]),
-                 Y=np.array([np.append(total_reward,
-                                       rr)]),
-                 win=win,
-                 update='append')
-    if param is None:
-        param = vis.line(X=np.arange(i_episode, i_episode+1),
-                         Y=np.array([maddpg.var[0]]),
-                         opts=dict(
-                             ylabel='Var',
-                             xlabel='Episode',
-                             title='MADDPG on WaterWorld: Exploration',
-                             legend=['Variance']))
-    else:
-        vis.line(X=np.array([i_episode]),
-                 Y=np.array([maddpg.var[0]]),
-                 win=param,
-                 update='append')
+    # if win is None:
+    #     win = vis.line(X=np.arange(i_episode, i_episode+1),
+    #                    Y=np.array([
+    #                        np.append(total_reward, rr)]),
+    #                    opts=dict(
+    #                        ylabel='Reward',
+    #                        xlabel='Episode',
+    #                        title='MADDPG on WaterWorld_mod\n' +
+    #                        'agent=%d' % n_agents +
+    #                        ', coop=%d' % n_coop +
+    #                        ', sensor_range=0.2\n' +
+    #                        'food=%f, poison=%f, encounter=%f' % (
+    #                            food_reward,
+    #                            poison_reward,
+    #                            encounter_reward),
+    #                        legend=['Total'] +
+    #                        ['Agent-%d' % i for i in range(n_agents)]))
+    # else:
+    #     vis.line(X=np.array(
+    #         [np.array(i_episode).repeat(n_agents+1)]),
+    #              Y=np.array([np.append(total_reward,
+    #                                    rr)]),
+    #              win=win,
+    #              update='append')
+    # if param is None:
+    #     param = vis.line(X=np.arange(i_episode, i_episode+1),
+    #                      Y=np.array([maddpg.var[0]]),
+    #                      opts=dict(
+    #                          ylabel='Var',
+    #                          xlabel='Episode',
+    #                          title='MADDPG on WaterWorld: Exploration',
+    #                          legend=['Variance']))
+    # else:
+    #     vis.line(X=np.array([i_episode]),
+    #              Y=np.array([maddpg.var[0]]),
+    #              win=param,
+    #              update='append')
 
 world.close()
