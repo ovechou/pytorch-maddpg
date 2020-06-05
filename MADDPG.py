@@ -7,6 +7,9 @@ from randomProcess import OrnsteinUhlenbeckProcess
 import torch.nn as nn
 import numpy as np
 from params import scale_reward
+from torch.autograd import Variable
+from utils.misc import onehot_from_logits
+
 
 
 def soft_update(target, source, t):
@@ -92,14 +95,13 @@ class MADDPG:
             non_final_mask = ByteTensor(list(map(lambda s: s is not None,
                                                  batch.next_states)))
             # state_batch: batch_size x n_agents x dim_obs
-            # state_batch的格式: tensor([1., 1.])
-            state_batch = th.stack(batch.states).type(FloatTensor)
-            action_batch = th.stack(batch.actions).type(FloatTensor)
-            reward_batch = th.stack(batch.rewards).type(FloatTensor)
+            state_batch = Variable(th.stack(batch.states).type(FloatTensor))
+            action_batch = Variable(th.stack(batch.actions).type(FloatTensor))
+            reward_batch = Variable(th.stack(batch.rewards).type(FloatTensor))
             # : (batch_size_non_final) x n_agents x dim_obs
-            non_final_next_states = th.stack(
+            non_final_next_states = Variable(th.stack(
                 [s for s in batch.next_states
-                 if s is not None]).type(FloatTensor)
+                 if s is not None]).type(FloatTensor))
 
             # for current agent
             # 使用view重新塑形

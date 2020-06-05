@@ -46,6 +46,12 @@ maddpg = MADDPG(n_agents, n_states, n_actions, batch_size, capacity,
 
 FloatTensor = th.cuda.FloatTensor if maddpg.use_cuda else th.FloatTensor
 for i_episode in range(n_episode):
+    # obs是从环境中获取的queue_length和waiting_time
+    # obs = env.get_obs() 返回list,List中是数组
+    # obs = np.asarray(obs)
+    # if isinstance(obs[i], np.npadday):
+        # obs[i] = th.from_numpy(obs[i]).float()
+        # obs[i] = Variable(obs[i]).type(FloatTensor)
     obs = world.reset()
     obs = np.stack(obs)
     if isinstance(obs, np.ndarray):
