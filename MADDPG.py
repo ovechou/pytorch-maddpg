@@ -1,5 +1,6 @@
 from model import Critic, Actor
 import torch as th
+import torch.nn.functional as F
 from copy import deepcopy
 from memory import ReplayMemory, Experience
 from torch.optim import Adam
@@ -167,12 +168,17 @@ class MADDPG:
         return c_loss, a_loss
 
     def select_action(self, state_batch):
+        for i in range(self.n_agents):
+            sb = state_batch[i, :].detach()
+            policy = self.actors[i](sb.unsqueeze(0)).squeeze()
+
         # state_batch: n_agents x state_dim
         actions = th.zeros(
             self.n_agents,
             self.n_actions)
         FloatTensor = th.cuda.FloatTensor if self.use_cuda else th.FloatTensor
         for i in range(self.n_agents):
+            
             sb = state_batch[i, :].detach()
             act = self.actors[i](sb.unsqueeze(0)).squeeze()
 
