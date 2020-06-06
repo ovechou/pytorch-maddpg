@@ -20,9 +20,10 @@ import traci
 
 import torch
 
+import time
+
 min_time = 30
 
-t = 10
 
 ql_weight = -0.5
 wt_weight = -0.25
@@ -98,7 +99,7 @@ class SumoAgent:
         return env.get_current_time()
 
 
-    def get_obs(self, node_names, lanes_nodes):
+    def get_obs(self):
         obs =[]
         for node_name in node_names:
             local_obs = []
@@ -133,24 +134,22 @@ class SumoAgent:
         return waiting_time
 
 
-    def step(self, actions):
+    def step(self, actions, time_now):
         i = 0
-        rewards = 0
+        rewards = []
         timestamp = env.get_current_time()
         for node_name in node_names:
-            real_action = real_actions[node_name]
-            red_time = red_times[node_name]
+            local_reward = []
+            reward = 0
             count = counts[node_name]
             action = actions[i]
             list_lanes = lanes_nodes[node_name]
-            local_lanes = record_nodes[node_name]
             queue_length = self.get_queue_length(list_lanes)
-            local_queue_length = self.get_queue_length(local_lanes)
             waiting_time = self.get_waiting_time(list_lanes)
             current_phase = traci.trafficlight.getPhase(node_name)
             count += 1
             if count < 15:
-                if action == 1 or action == torch.tensor(1) or action == torch.tensor([1]):
+                if action == 1:
                     current_phase, _ = env.changeTrafficLight_7(current_phase, node_name)
                     reward = ql_weight * queue_length + wt_weight * waiting_time - 100
                     count = 0
@@ -158,42 +157,17 @@ class SumoAgent:
                     reward = ql_weight * queue_length + wt_weight * waiting_time
             else:
                 reward = ql_weight * queue_length + wt_weight * waiting_time
-                if action == 1 or action == torch.tensor(1) or action == torch.tensor([1]):
+                if action == 1:
                     current_phase, _ = env.changeTrafficLight_7(current_phase, node_name)
                     count = 0
             counts[node_name] = count
-            # if count < 15:
-            #     action = 0
-            # else:    
-            #     action = actions[i]
-            #     if action == 1 or action == torch.tensor(1) or action == torch.tensor([1]):
-            #         real_action = 1
-            #         real_actions[node_name] = real_action
-            #     if real_action == 1:
-            #         if current_phase % 2 == 0:
-            #             action = 1
-            #             current_phase, _ = env.changeTrafficLight_7(current_phase, node_name)
-            #             continue
-            #         else:
-            #             action = 0
-            #             red_time += 1
-            #             if red_time >= 3:
-            #                 action = 1
-            #                 red_time = 0 
-            #                 current_phase, _ = env.changeTrafficLight_7(current_phase, node_name)
-            #                 count = 0
-            #                 real_action = 0
-            #             else:
-            #                 pass
-            # real_actions[node_name] = real_action
-            # red_times[node_name] = red_time
-            file_name = "D:/zbb99/Desktop/pytorch-maddpg/record/{0}".format(t)
+            file_name = "D:/zbb99/Desktop/pytorch-maddpg/record/{0}".format(time_now)
+            os.makedirs(file_name)
             file_name = file_name + '/'
             reward_str = "{0}, {1}".format(timestamp, action)
             reward_str = reward_str + ", {0}".format(queue_length)
             reward_str = reward_str + ", {0}".format(waiting_time)
             reward_str = reward_str + ", {0}".format(current_phase)
-            reward_str = reward_str + ", {0}".format(local_queue_length)
             reward_str += '\n'
             f_log_rewards = os.path.join(file_name,'log_rewards_{0}.txt'.format(node_name))
             if not os.path.exists(f_log_rewards):
@@ -205,10 +179,8 @@ class SumoAgent:
             fp = open(f_log_rewards, "a")
             fp.write(reward_str)
             fp.close
-            rewards += reward
+            local_reward.append(reward)
+            rewards.append(local_reward)
             i += 1
         traci.simulationStep()
         return rewards
-
-
-            

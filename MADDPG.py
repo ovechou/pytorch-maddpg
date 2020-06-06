@@ -4,13 +4,12 @@ import torch.nn.functional as F
 from copy import deepcopy
 from memory import ReplayMemory, Experience
 from torch.optim import Adam
-from randomProcess import OrnsteinUhlenbeckProcess
 import torch.nn as nn
 import numpy as np
 from params import scale_reward
 from torch.autograd import Variable
-from utils.misc import onehot_from_logits
 from torch.distributions import Categorical
+import os
 
 
 
@@ -168,17 +167,17 @@ class MADDPG:
 
         return c_loss, a_loss
 
-    def select_action(self, state_batch, eps=0.0):
+    def select_action(self, state_batch, eps=None, min_eps=None):
         for i in range(self.n_agents):
             sb = state_batch[i, :].detach()
             policy = self.actors[i](sb.unsqueeze(0)).squeeze()
 
 
         # state_batch: n_agents x state_dim
-        argmax_acs = th.long(
+        argmax_acs = th.LongTensor(
             self.n_agents,
             self.n_actions)
-        rand_acs = th.long(
+        rand_acs = th.LongTensor(
             self.n_agents,
             self.n_actions)
         LongTensor = th.cuda.LongTensor if self.use_cuda else th.LongTensor
@@ -198,3 +197,20 @@ class MADDPG:
         self.steps_done += 1
         return th.stack([argmax_acs[i] if r > eps else rand_acs[i] for i, r in
                         enumerate(th.rand(self.n_agents))])
+
+
+    def save(self, model_dir, train_step, save_cycle, time_now):
+        """
+        Save trained parameters of all agents into one file
+        """
+        num = str(train_step // save_cycle)
+        model_dir = './model/' + time_now
+        if not os.path.exists(model_dir):
+            os.makedirs(model_dir)
+        for i in range(9):
+            w = str(num)
+            q = str(i)
+            th.save(self.actors[i].state_dict(), model_dir + '/' + w + '_'+ q + 'actor_params.pkl')
+            th.save(self.actors_target[i].state_dict(), model_dir + '/' + w + '_'+ q + 'actor_target_params.pkl')
+            th.save(self.critics[i].state_dict(), model_dir + '/' + w + '_'+ q + 'critic_params.pkl')
+            th.save(self.critics_target[i].state_dict(), model_dir + '/'+ w + '_' + q + 'critic_target_params.pkl')

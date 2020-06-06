@@ -10,13 +10,13 @@ from gym import spaces
 from gym.utils import seeding
 from matplotlib.patches import Rectangle
 
-from madrl_environments import AbstractMAEnv
+# from madrl_environments import AbstractMAEnv
 from six.moves import xrange
 from .utils import agent_utils
 from .utils.AgentLayer import AgentLayer
 from .utils.Controllers import RandomPolicy
 
-from rltools.util import EzPickle
+# from rltools.util import EzPickle
 
 #################################################################
 # Implements an Evade Pursuit Problem in 2D
