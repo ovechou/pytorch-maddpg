@@ -168,7 +168,7 @@ class MADDPG:
 
         return c_loss, a_loss
 
-    def select_action(self, state_batch, eps):
+    def select_action(self, state_batch, eps=0.0):
         for i in range(self.n_agents):
             sb = state_batch[i, :].detach()
             policy = self.actors[i](sb.unsqueeze(0)).squeeze()
@@ -189,7 +189,7 @@ class MADDPG:
             policy = Variable(actor(sb).squeeze(), requires_grad=False)
             prob = F.softmax(policy)
             argmax_acs[i] = th.argmax(prob).clone().detach()
-            rand_acs[i] = Categorical(prob).sample().long()
+            rand_acs[i] = Categorical(prob).sample().type(LongTensor)
         argmax_acs = argmax_acs.squeeze()
         rand_acs = rand_acs.squeeze()
         if eps == 0.0:

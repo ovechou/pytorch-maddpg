@@ -62,8 +62,8 @@ for i_episode in range(n_episode):
         obs = obs.type(FloatTensor)
         actions = maddpg.select_action(obs).data.cpu()
         # 将actions 转化为列表的形式
-        actions = actions.numpy().tolist()
-        obs_, reward, done, _ = world.step(actions.numpy())
+        acts_np = actions.numpy().tolist()
+        obs_, reward, done, _ = world.step(acts_np)
 
         reward = th.FloatTensor(reward).type(FloatTensor)
         obs_ = np.stack(obs_)
@@ -75,7 +75,7 @@ for i_episode in range(n_episode):
 
         total_reward += reward.sum()
         rr += reward.cpu().numpy()
-        maddpg.memory.push(obs.data, action, next_obs, reward)
+        maddpg.memory.push(obs.data, actions, next_obs, reward)
         obs = next_obs
 
         c_loss, a_loss = maddpg.update_policy()
