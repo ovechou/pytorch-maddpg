@@ -19,7 +19,8 @@ def get_common_args():
     parser.add_argument('--steps_per_update', type=int, default=100, help='the step_length to update')
     # scale_reward maybe not useful
     parser.add_argument('--scale_reward', type=float, default=0.01)
-    parser.add_argument('--seed', type=int, default=1, help='Random seed')
+    parser.add_argument('--seed', type=int, default=1234, help='Random seed')
+    parser.add_argument('--manual_seed', type=int, default=1234, help='Radndom seed of torch')
     parser.add_argument('--hidden_dim', type=int, default=64, help='hidden dim of model')
     parser.add_argument('--lr', type=float, default=0.01, help='learning rate')
     parser.add_argument('--tau', type=float, default=0.01, help='Target update rate')

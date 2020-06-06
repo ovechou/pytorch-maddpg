@@ -48,7 +48,7 @@ class MADDPG:
         self.GAMMA = 0.95
         self.tau = 0.01
 
-        self.var = [1.0 for i in range(n_agents)]
+        # self.var = [1.0 for i in range(n_agents)]
         self.critic_optimizer = [Adam(x.parameters(),
                                       lr=0.001) for x in self.critics]
         self.actor_optimizer = [Adam(x.parameters(),

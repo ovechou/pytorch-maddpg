@@ -4,71 +4,59 @@ import numpy as np
 import torch as th
 import visdom
 from params import scale_reward
+from arguments import get_common_args
+from envs.SumoAgent import SumoAgent
 
-# do not render the scene
-e_render = False
+arg = get_common_args()
 
-food_reward = 10.
-poison_reward = -1.
-encounter_reward = 0.01
-n_coop = 2
-world = MAWaterWorld_mod(n_pursuers=2, n_evaders=50,
-                         n_poison=50, obstacle_radius=0.04,
-                         food_reward=food_reward,
-                         poison_reward=poison_reward,
-                         encounter_reward=encounter_reward,
-                         n_coop=n_coop,
-                         sensor_range=0.2, obstacle_loc=None, )
-
-vis = visdom.Visdom(port=5274)
 reward_record = []
 
 # numpy的初始化种子
-np.random.seed(1234)
+seed = arg.seed
+np.random.seed(seed)
 # torch的初始化种子
 th.manual_seed(1234)
-world.seed(1234)
-n_agents = world.n_pursuers
-n_states = 213
-n_actions = 2
+n_agents = arg.n_agents
+n_states = arg.n_states
+n_actions = arg.n_actions
 capacity = 1000000
-batch_size = 1000
+batch_size = arg.batch_size
 
-n_episode = 20000
-max_steps = 1000
-episodes_before_train = 100
-
-win = None
-param = None
+n_episode = arg.n_episode
+episode_length = arg.episode_length
+episodes_before_train = arg.episodes_before_train
 
 maddpg = MADDPG(n_agents, n_states, n_actions, batch_size, capacity,
                 episodes_before_train)
 
+sumoBinary = r"D:/SUMO/bin/sumo-gui"
+sumoBinary_nogui = r"D:/SUMO/bin/sumo"
+sumo_path = 'D:/zbb99/Desktop/pytorch-maddpg'
+sumoCmd = [sumoBinary_nogui,
+            '-c',
+            r'{0}/exp.sumocfg'.format(sumo_path)]
+
+env = SumoAgent(sumoCmd, n_agents)
+
 FloatTensor = th.cuda.FloatTensor if maddpg.use_cuda else th.FloatTensor
 for i_episode in range(n_episode):
-    # obs是从环境中获取的queue_length和waiting_time
-    # obs = env.get_obs() 返回list,List中是数组
-    # obs = np.asarray(obs)
-    # if isinstance(obs[i], np.npadday):
-        # obs[i] = th.from_numpy(obs[i]).float()
-        # obs[i] = Variable(obs[i]).type(FloatTensor)
-    obs = world.reset()
+    obs = env.reset()
     obs = np.stack(obs)
     if isinstance(obs, np.ndarray):
         obs = th.from_numpy(obs).float()
     total_reward = 0.0
     rr = np.zeros((n_agents,))
-    for t in range(max_steps):
+    for t in range(episode_length):
         obs = obs.type(FloatTensor)
         actions = maddpg.select_action(obs).data.cpu()
         # 将actions 转化为列表的形式
         acts_np = actions.numpy().tolist()
-        obs_, reward, done, _ = world.step(acts_np)
+        obs_, reward, done, _ = env.step(acts_np)
 
         reward = th.FloatTensor(reward).type(FloatTensor)
         obs_ = np.stack(obs_)
         obs_ = th.from_numpy(obs_).float()
-        if t != max_steps - 1:
+        if t != episode_length - 1:
             next_obs = obs_
         else:
             next_obs = None
@@ -87,12 +75,5 @@ for i_episode in range(n_episode):
         print('training now begins...')
         print('MADDPG on WaterWorld\n' +
               'scale_reward=%f\n' % scale_reward +
-              'agent=%d' % n_agents +
-              ', coop=%d' % n_coop +
-              ' \nlr=0.001, 0.0001, sensor_range=0.3\n' +
-              'food=%f, poison=%f, encounter=%f' % (
-                  food_reward,
-                  poison_reward,
-                  encounter_reward))
-
-world.close()
+              'agent=%d' % n_agents )
+env.end_sumo()
