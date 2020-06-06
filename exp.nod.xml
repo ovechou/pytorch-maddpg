@@ -1,0 +1,23 @@
+<nodes>
+  <node id="nl10" x="-625.00" y="300.00" type="priority"/>
+  <node id="nl11" x="-300.00" y="325.00" type="priority"/>
+  <node id="nl1" x="-300.00" y="300.00" type="traffic_light"/>
+  <node id="nl20" x="-625.00" y="0.00" type="priority"/>
+  <node id="nl2" x="-300.00" y="0.00" type="traffic_light"/>
+  <node id="nl30" x="-625.00" y="-300.00" type="priority"/>
+  <node id="nl31" x="-300.00" y="-325.00" type="priority"/>
+  <node id="nl3" x="-300.00" y="-300.00" type="traffic_light"/>
+  <node id="nm11" x="0.00" y="325.00" type="priority"/>
+  <node id="nm1" x="0.00" y="300.00" type="traffic_light"/>
+  <node id="nm2" x="0.00" y="0.00" type="traffic_light"/>
+  <node id="nm31" x="0.00" y="-325.00" type="priority"/>
+  <node id="nm3" x="0.00" y="-300.00" type="traffic_light"/>
+  <node id="nr10" x="325.00" y="300.00" type="priority"/>
+  <node id="nr11" x="300.00" y="325.00" type="priority"/>
+  <node id="nr1" x="300.00" y="300.00" type="traffic_light"/>
+  <node id="nr20" x="325.00" y="0.00" type="priority"/>
+  <node id="nr2" x="300.00" y="0.00" type="traffic_light"/>
+  <node id="nr30" x="325.00" y="-300.00" type="priority"/>
+  <node id="nr31" x="300.00" y="-325.00" type="priority"/>
+  <node id="nr3" x="300.00" y="-300.00" type="traffic_light"/>
+</nodes>

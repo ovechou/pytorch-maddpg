@@ -1,0 +1,498 @@
+<routes>
+  <vType id="type1" length="5" accel="5" decel="10"/>
+  <flow id="lr_1_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr10"/>
+  </flow>
+  <flow id="lr_1_2" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl10_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_1_3" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_1_4" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_2_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr20"/>
+  </flow>
+  <flow id="lr_2_2" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl20_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_2_3" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_2_4" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_3_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr30"/>
+  </flow>
+  <flow id="lr_3_2" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl30_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_3_3" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_3_4" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  
+  <flow id="rl_1_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl10"/>
+  </flow>
+  <flow id="rl_1_2" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr10_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_1_3" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_1_4" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_2_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl20"/>
+  </flow>
+  <flow id="rl_2_2" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr20_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_2_3" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_2_4" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_3_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl30"/>
+  </flow>
+  <flow id="rl_3_2" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr30_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_3_3" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_3_4" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="ns_1_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl11_nl1 nl1_nl2 nl2_nl3 nl3_nl31"/>
+  </flow>
+  <flow id="ns_2_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nm11_nm1 nm1_nm2 nm2_nm3 nm3_nm31"/>
+  </flow>
+  <flow id="ns_3_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr11_nr1 nr1_nr2 nr2_nr3 nr3_nr31"/>
+  </flow>
+
+  <flow id="sn_1_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nl31_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="sn_2_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nm31_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="sn_3_1" departPos="random_free" begin="0" end="20000" probability="0.01" type="type1">
+    <route edges="nr31_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_1_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr10"/>
+  </flow>
+  <flow id="lr_1_2_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl10_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_1_3_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_1_4_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_2_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr20"/>
+  </flow>
+  <flow id="lr_2_2_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl20_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_2_3_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_2_4_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_3_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr30"/>
+  </flow>
+  <flow id="lr_3_2_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl30_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_3_3_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_3_4_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  
+  <flow id="rl_1_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl10"/>
+  </flow>
+  <flow id="rl_1_2_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr10_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_1_3_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_1_4_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_2_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl20"/>
+  </flow>
+  <flow id="rl_2_2_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr20_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_2_3_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_2_4_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_3_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl30"/>
+  </flow>
+  <flow id="rl_3_2_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr30_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_3_3_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_3_4_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="ns_1_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl11_nl1 nl1_nl2 nl2_nl3 nl3_nl31"/>
+  </flow>
+  <flow id="ns_2_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nm11_nm1 nm1_nm2 nm2_nm3 nm3_nm31"/>
+  </flow>
+  <flow id="ns_3_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr11_nr1 nr1_nr2 nr2_nr3 nr3_nr31"/>
+  </flow>
+
+  <flow id="sn_1_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nl31_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="sn_2_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nm31_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="sn_3_1_1" departPos="random_free" begin="20000" end="40000" probability="0.03" type="type1">
+    <route edges="nr31_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_1_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr10"/>
+  </flow>
+  <flow id="lr_1_2_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl10_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_1_3_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_1_4_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_2_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr20"/>
+  </flow>
+  <flow id="lr_2_2_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl20_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_2_3_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_2_4_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_3_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr30"/>
+  </flow>
+  <flow id="lr_3_2_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl30_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_3_3_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_3_4_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  
+  <flow id="rl_1_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl10"/>
+  </flow>
+  <flow id="rl_1_2_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr10_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_1_3_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_1_4_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_2_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl20"/>
+  </flow>
+  <flow id="rl_2_2_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr20_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_2_3_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_2_4_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_3_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl30"/>
+  </flow>
+  <flow id="rl_3_2_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr30_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_3_3_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_3_4_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="ns_1_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl11_nl1 nl1_nl2 nl2_nl3 nl3_nl31"/>
+  </flow>
+  <flow id="ns_2_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nm11_nm1 nm1_nm2 nm2_nm3 nm3_nm31"/>
+  </flow>
+  <flow id="ns_3_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr11_nr1 nr1_nr2 nr2_nr3 nr3_nr31"/>
+  </flow>
+
+  <flow id="sn_1_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nl31_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="sn_2_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nm31_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="sn_3_1_2" departPos="random_free" begin="40000" end="60000" probability="0.06" type="type1">
+    <route edges="nr31_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_1_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr10"/>
+  </flow>
+  <flow id="lr_1_2_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl10_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_1_3_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_1_4_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_2_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr20"/>
+  </flow>
+  <flow id="lr_2_2_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl20_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_2_3_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_2_4_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_3_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr30"/>
+  </flow>
+  <flow id="lr_3_2_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl30_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_3_3_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_3_4_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  
+  <flow id="rl_1_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl10"/>
+  </flow>
+  <flow id="rl_1_2_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr10_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_1_3_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_1_4_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_2_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl20"/>
+  </flow>
+  <flow id="rl_2_2_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr20_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_2_3_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_2_4_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_3_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl30"/>
+  </flow>
+  <flow id="rl_3_2_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr30_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_3_3_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_3_4_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="ns_1_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl11_nl1 nl1_nl2 nl2_nl3 nl3_nl31"/>
+  </flow>
+  <flow id="ns_2_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nm11_nm1 nm1_nm2 nm2_nm3 nm3_nm31"/>
+  </flow>
+  <flow id="ns_3_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr11_nr1 nr1_nr2 nr2_nr3 nr3_nr31"/>
+  </flow>
+
+  <flow id="sn_1_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nl31_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="sn_2_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nm31_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="sn_3_1_3" departPos="random_free" begin="60000" end="80000" probability="0.04" type="type1">
+    <route edges="nr31_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+
+  <flow id="lr_1_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr10"/>
+  </flow>
+  <flow id="lr_1_2_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl10_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_1_3_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_1_4_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl10_nl1 nl1_nm1 nm1_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_2_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr20"/>
+  </flow>
+  <flow id="lr_2_2_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl20_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_2_3_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_2_4_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl20_nl2 nl2_nm2 nm2_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  <flow id="lr_3_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr30"/>
+  </flow>
+  <flow id="lr_3_2_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl30_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="lr_3_3_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="lr_3_4_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl30_nl3 nl3_nm3 nm3_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+
+  
+  <flow id="rl_1_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl10"/>
+  </flow>
+  <flow id="rl_1_2_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr10_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_1_3_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_1_4_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr10_nr1 nr1_nm1 nm1_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_2_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl20"/>
+  </flow>
+  <flow id="rl_2_2_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr20_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_2_3_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_2_4_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr20_nr2 nr2_nm2 nm2_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="rl_3_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl30"/>
+  </flow>
+  <flow id="rl_3_2_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr30_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+  <flow id="rl_3_3_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="rl_3_4_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr30_nr3 nr3_nm3 nm3_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+
+  <flow id="ns_1_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl11_nl1 nl1_nl2 nl2_nl3 nl3_nl31"/>
+  </flow>
+  <flow id="ns_2_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nm11_nm1 nm1_nm2 nm2_nm3 nm3_nm31"/>
+  </flow>
+  <flow id="ns_3_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr11_nr1 nr1_nr2 nr2_nr3 nr3_nr31"/>
+  </flow>
+
+  <flow id="sn_1_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nl31_nl3 nl3_nl2 nl2_nl1 nl1_nl11"/>
+  </flow>
+  <flow id="sn_2_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nm31_nm3 nm3_nm2 nm2_nm1 nm1_nm11"/>
+  </flow>
+  <flow id="sn_3_1_4" departPos="random_free" begin="80000" end="100000" probability="0.06" type="type1">
+    <route edges="nr31_nr3 nr3_nr2 nr2_nr1 nr1_nr11"/>
+  </flow>
+</routes>

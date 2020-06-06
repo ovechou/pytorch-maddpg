@@ -1,0 +1,56 @@
+<additional>
+  <tlLogic id="nl1" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+  <tlLogic id="nl2" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+  <tlLogic id="nl3" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+  <tlLogic id="nm1" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+  <tlLogic id="nm2" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+  <tlLogic id="nm3" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+  <tlLogic id="nr1" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+  <tlLogic id="nr2" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+  <tlLogic id="nr3" programID="0" offset="0" type="static">
+    <phase duration="30" state="GrGr"/>
+    <phase duration="3" state="yyrr"/>
+    <phase duration="30" state="rGrG"/>
+    <phase duration="3" state="rryy"/>
+  </tlLogic>
+</additional>
