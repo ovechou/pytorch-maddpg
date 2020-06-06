@@ -10,6 +10,7 @@ import numpy as np
 from params import scale_reward
 from torch.autograd import Variable
 from utils.misc import onehot_from_logits
+from torch.distributions import Categorical
 
 
 
@@ -167,30 +168,33 @@ class MADDPG:
 
         return c_loss, a_loss
 
-    def select_action(self, state_batch):
+    def select_action(self, state_batch, eps):
         for i in range(self.n_agents):
             sb = state_batch[i, :].detach()
             policy = self.actors[i](sb.unsqueeze(0)).squeeze()
 
+
         # state_batch: n_agents x state_dim
-        actions = th.zeros(
+        argmax_acs = th.long(
             self.n_agents,
             self.n_actions)
+        rand_acs = th.long(
+            self.n_agents,
+            self.n_actions)
+        LongTensor = th.cuda.LongTensor if self.use_cuda else th.LongTensor
         FloatTensor = th.cuda.FloatTensor if self.use_cuda else th.FloatTensor
         for i in range(self.n_agents):
-            
             sb = state_batch[i, :].detach()
-            act = self.actors[i](sb.unsqueeze(0)).squeeze()
-
-            act += th.from_numpy(
-                np.random.randn(2) * self.var[i]).type(FloatTensor)
-
-            if self.episode_done > self.episodes_before_train and\
-               self.var[i] > 0.05:
-                self.var[i] *= 0.999998
-            act = th.clamp(act, -1.0, 1.0)
-
-            actions[i, :] = act
+            actor = self.actors[i]
+            policy = Variable(actor(sb).squeeze(), requires_grad=False)
+            prob = F.softmax(policy)
+            argmax_acs[i] = th.argmax(prob).clone().detach()
+            rand_acs[i] = Categorical(prob).sample().long()
+        argmax_acs = argmax_acs.squeeze()
+        rand_acs = rand_acs.squeeze()
+        if eps == 0.0:
+            return argmax_acs
+        # TODO:此处的steps_done待定啥时候用
         self.steps_done += 1
-
-        return actions
+        return th.stack([argmax_acs[i] if r > eps else rand_acs[i] for i, r in
+                        enumerate(th.rand(self.n_agents))])

@@ -60,8 +60,10 @@ for i_episode in range(n_episode):
     rr = np.zeros((n_agents,))
     for t in range(max_steps):
         obs = obs.type(FloatTensor)
-        action = maddpg.select_action(obs).data.cpu()
-        obs_, reward, done, _ = world.step(action.numpy())
+        actions = maddpg.select_action(obs).data.cpu()
+        # 将actions 转化为列表的形式
+        actions = actions.numpy().tolist()
+        obs_, reward, done, _ = world.step(actions.numpy())
 
         reward = th.FloatTensor(reward).type(FloatTensor)
         obs_ = np.stack(obs_)
