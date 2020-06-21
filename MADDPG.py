@@ -81,8 +81,6 @@ class MADDPG:
         # critic Loss
         a_loss = []
         # 循环，对于每一个agent提取transitions
-        # TODO:后面继续看没有智能体的区分吗？
-        # 因为智能体统一，可以通用来训练
         for agent in range(self.n_agents):
             # 提取过渡态
             transitions = self.memory.sample(self.batch_size)
@@ -176,10 +174,10 @@ class MADDPG:
         # state_batch: n_agents x state_dim
         argmax_acs = th.LongTensor(
             self.n_agents,
-            self.n_actions)
+            1)
         rand_acs = th.LongTensor(
             self.n_agents,
-            self.n_actions)
+            1)
         LongTensor = th.cuda.LongTensor if self.use_cuda else th.LongTensor
         FloatTensor = th.cuda.FloatTensor if self.use_cuda else th.FloatTensor
         for i in range(self.n_agents):

@@ -25,7 +25,6 @@ n_actions = args.n_actions
 capacity = 100000
 batch_size = args.batch_size
 
-time_now = time.strftime('%y_%m_%d_%H_%M_%S', time.localtime())
 
 n_episode = args.n_episode
 episode_length = args.episode_length
@@ -44,6 +43,7 @@ sumoCmd = [sumoBinary_nogui,
 
 def run(args):
     # 创建模型文件夹
+    time_now = time.strftime('%y_%m_%d_%H_%M_%S', time.localtime())
     
     env = SumoAgent(sumoCmd, n_agents)
 
@@ -65,8 +65,8 @@ def run(args):
             actions = maddpg.select_action(torch_obs, eps, min_eps).data.cpu()
             # 将actions转化为torch.tensor(9,1)的格式
             torch_acs = th.LongTensor(9,1)
-            # for i in range(n_agents):
-            #     torch_acs[i] = actions[i].unsqueeze(0)
+            for i in range(n_agents):
+                torch_acs[i] = actions[i].unsqueeze(0)
             # 将actions 转化为列表的形式
             acts_np = actions.numpy().tolist()
             reward = env.step(acts_np, time_now)
@@ -79,11 +79,11 @@ def run(args):
             else:
                 next_obs = None
             total_reward += reward.sum()
-            rr += reward.cpu().numpy()
+            # rr += reward.cpu().numpy()
             maddpg.memory.push(torch_obs, torch_acs, next_obs, reward)
             obs = next_obs
             c_loss, a_loss = maddpg.update_policy()
-        maddpg.episode_done += 1
+            maddpg.episode_done += 1
         print('Episode: %d, reward = %f' % (i_episode, total_reward))
         reward_record.append(total_reward)
 
@@ -97,3 +97,12 @@ def run(args):
 if __name__ == '__main__':
     args = get_common_args()
     run(args)
+
+
+# if maddpg.episode_done >= 4:
+#     test_memory = maddpg.memory.sample(3)
+#     batchtest = Experience(*zip(*test_memory))
+#     state_batch = Variable(th.stack(batchtest.states).type(FloatTensor))
+#     whole_state = state_batch.view(3, -1)
+#     print(test_memory)
+#     print(batchtest)

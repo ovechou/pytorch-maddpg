@@ -162,7 +162,8 @@ class SumoAgent:
                     count = 0
             counts[node_name] = count
             file_name = "D:/zbb99/Desktop/pytorch-maddpg/record/{0}".format(time_now)
-            os.makedirs(file_name)
+            if not os.path.exists(file_name):
+                os.makedirs(file_name)
             file_name = file_name + '/'
             reward_str = "{0}, {1}".format(timestamp, action)
             reward_str = reward_str + ", {0}".format(queue_length)
