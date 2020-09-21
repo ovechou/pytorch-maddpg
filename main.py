@@ -1,7 +1,7 @@
 from MADDPG import MADDPG
 import numpy as np
 import torch as th
-import visdom
+# import visdom
 from params import scale_reward
 from arguments import get_common_args
 from envs.SumoAgent import SumoAgent
