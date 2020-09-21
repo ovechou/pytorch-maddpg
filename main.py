@@ -34,9 +34,9 @@ maddpg = MADDPG(n_agents, n_states, n_actions, batch_size, capacity,
                 episodes_before_train)
 
 sumoBinary = r"/usr/share/sumo/bin/sumo-gui"
-sumoBinary_nogui = r"/usr/share/sumo/bin/sumo-gui"
+sumoBinary_nogui = r"/usr/share/sumo/bin/sumo"
 
-sumo_path = 'userhome/ove/pytorch-maddpg'
+sumo_path = '/userhome/ove/pytorch-maddpg'
 sumoCmd = [sumoBinary_nogui,
             '-c',
             r'{0}/exp.sumocfg'.format(sumo_path)]
