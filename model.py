@@ -18,7 +18,8 @@ class Critic(nn.Module):
         act_dim = self.dim_action * n_agent
 
         self.FC1 = nn.Linear(obs_dim, 1024)
-        self.FC2 = nn.Linear(1024+act_dim, 512)
+        self.FC2 = nn.Linear(1033, 512)
+        # self.FC2 = nn.Linear(1024+act_dim, 512)
         self.FC3 = nn.Linear(512, 300)
         self.FC4 = nn.Linear(300, 1)
 
